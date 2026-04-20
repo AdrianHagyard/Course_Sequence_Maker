@@ -23,11 +23,11 @@ email: adriansnhagyard@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A course sequence diagram maker for Carleton University Undergraduate students.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://adrianhagyard.github.io/Course_Sequence_Maker" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  AdrianHagyard
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
 
