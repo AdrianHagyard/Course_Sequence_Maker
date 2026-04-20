@@ -4,9 +4,11 @@
         <meta charset="UTF-8">
         <title>View</title>
         <script src="/docs/assets/js/view"></script>
+        <link rel="stylesheet" href="/docs/assets/css/view.css">
     </head>
 
     <body>
-        
+        <div ondrop="dragDrop(event)" ondragover="dragOver(event)"></div>
+        <h1 draggable="true" ondragstart="dragStart(event)">Drag this!</h1>
     </body>
 </html>
