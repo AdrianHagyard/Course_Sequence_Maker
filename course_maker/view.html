@@ -4,12 +4,46 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>View</title>
-        <script src="../docs/assets/js/view.js"></script>
         <link rel="stylesheet" href="../docs/assets/css/view.css">
+        <script defer src="../docs/assets/js/view.js"></script>
     </head>
 
     <body>
-        <div class="slot"></div>
-        <h1 id="dragText" draggable="true">Drag this!</h1>
+        <div class="container">
+            <div id="slotSection">
+                <div class="slot" data-limit=1></div>
+                <div class="slot" data-limit=1></div>
+                <div class="slot" data-limit=1></div>
+                <div class="slot" data-limit=1></div>
+                <div class="slot" data-limit=1></div>
+                <h1>1</h1>
+                <h1>2</h1>
+                <h1>3</h1>
+                <h1>4</h1>
+                <h1>5</h1>
+            </div>
+            <div id="courseSection" class="slot" data-limit=-1>
+                <div class="course" id="COMP1005" draggable="true">
+                    <h2 class="courseTitle">COMP 1005</h2>
+                    <p class="courseName">Introduction to Computer Science <span aria-label="1">&#8544;</span></p>
+                </div>
+                <div class="course" id="COMP1006" draggable="true">
+                    <h2 class="courseTitle">COMP 1006</h2>
+                    <p class="courseName">Introduction to Computer Science <span aria-label="2">&#8544;&#8544;</span></p>
+                </div>
+            </div>
+            <div id="infoSection">
+                <h2 id="slot1Name">None</h2>
+                <p id="slot1Desc">None</p>
+                <h2 id="slot2Name">None</h2>
+                <p id="slot2Desc">None</p>
+                <h2 id="slot3Name">None</h2>
+                <p id="slot3Desc">None</p>
+                <h2 id="slot4Name">None</h2>
+                <p id="slot4Desc">None</p>
+                <h2 id="slot5Name">None</h2>
+                <p id="slot5Desc">None</p>
+            </div>
+        </div>
     </body>
 </html>
