@@ -1,41 +1,54 @@
 div.container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 10px;
 }
 
-div#slotSection {
+div.year {
     display: flex;
-    padding: 10px;
-    flex-wrap: wrap;
-    /* gap: 10px; */
-    text-align: center;
-}
-
-div#courseSection {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-row-start: 2;
     border: 1px black solid;
-    margin: 10px;
-    padding: 5px;
+    justify-content: space-evenly;
 }
 
-div#infoSection {
+div.term {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: solid black 1px;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.term div {
+    margin: 5px;
+    background-color: rgb(204, 204, 204);
+    width: 100%;
+    max-width: 100px;
+    aspect-ratio: 1 / 1;
+}
+
+.acceptDrop {
+    background-color: rgb(141, 141, 141);
+}
+
+div.infoBox {
     grid-row: span 2;
     border: 1px black solid;
     margin: 10px;
     text-align: center;
+    padding: 5px;
 }
 
-div#slotSection .slot {
-    width: 160px;
-    height: 160px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+div.coursesBox {
+    grid-row-start: 2;
+    border: 1px black dashed;
+    margin: 10px;
+    padding: 5px;
+}
+
+.scrollBox {
+    border: 1px black solid;
+    overflow: scroll;
 }
 
 div.course {
@@ -48,8 +61,4 @@ div.course {
 
 .courseTitle {
     font-weight: bold;
-}
-
-div#slotSection .acceptDrop {
-    background-color: #cfcfcf;
 }

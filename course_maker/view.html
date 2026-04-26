@@ -10,39 +10,50 @@
 
     <body>
         <div class="container">
-            <div id="slotSection">
-                <div class="slot" data-limit=1></div>
-                <div class="slot" data-limit=1></div>
-                <div class="slot" data-limit=1></div>
-                <div class="slot" data-limit=1></div>
-                <div class="slot" data-limit=1></div>
-                <h1>1</h1>
-                <h1>2</h1>
-                <h1>3</h1>
-                <h1>4</h1>
-                <h1>5</h1>
-            </div>
-            <div id="courseSection" class="slot" data-limit=-1>
-                <div class="course" id="COMP1005" draggable="true">
-                    <h2 class="courseTitle">COMP 1005</h2>
-                    <p class="courseName">Introduction to Computer Science <span aria-label="1">&#8544;</span></p>
+            <div class="year" id="year1">
+                <div class="term" id="term1">
+                    <div id="course1"></div>
+                    <div id="course2"></div>
+                    <div id="course3"></div>
+                    <div id="course4"></div>
+                    <div id="course5"></div>
                 </div>
-                <div class="course" id="COMP1006" draggable="true">
-                    <h2 class="courseTitle">COMP 1006</h2>
-                    <p class="courseName">Introduction to Computer Science <span aria-label="2">&#8544;&#8544;</span></p>
+                <div class="term" id="term2">
+                    <div id="course1"></div>
+                    <div id="course2"></div>
+                    <div id="course3"></div>
+                    <div id="course4"></div>
+                    <div id="course5"></div>
                 </div>
             </div>
-            <div id="infoSection">
-                <h2 id="slot1Name">None</h2>
-                <p id="slot1Desc">None</p>
-                <h2 id="slot2Name">None</h2>
-                <p id="slot2Desc">None</p>
-                <h2 id="slot3Name">None</h2>
-                <p id="slot3Desc">None</p>
-                <h2 id="slot4Name">None</h2>
-                <p id="slot4Desc">None</p>
-                <h2 id="slot5Name">None</h2>
-                <p id="slot5Desc">None</p>
+
+            <div class="infoBox">
+                <div id="hoverInfo">
+                    <h1>Course hovered over in slot:</h1>
+                    <hr>
+                    <h2>Name: </h2>
+                    <p>Code: </p>
+                    <p>Year: </p>
+                    <p>Term: </p>
+                    <p>Slot: </p>
+                </div>
+                <div id="clickedInfo">
+                    <h1>Course clicked in search:</h1>
+                    <hr>
+                    <h2>Name: </h2>
+                    <p>Code: </p>
+                </div>
+            </div>
+
+            <div class="coursesBox">
+                <form>
+                    <label for="courseSearch">Search Courses:</label>
+                    <input type="search" id="courseSearch" name="courseSearch">
+                    <input type="submit" value="Search">
+                </form>
+                <div id="shownCourses" class="scrollBox">
+                    <span id="COMP1501">COMP1501</span>
+                </div>
             </div>
         </div>
     </body>
