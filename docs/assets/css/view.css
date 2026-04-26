@@ -6,7 +6,7 @@ div.container {
 
 div.year {
     display: flex;
-    border: 1px black solid;
+    border: 0.5px black solid;
     justify-content: space-evenly;
 }
 
@@ -14,14 +14,14 @@ div.term {
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: solid black 1px;
+    border: solid black 0.5px;
     flex-grow: 1;
     align-items: center;
 }
 
 .term div {
     margin: 5px;
-    background-color: rgb(204, 204, 204);
+    background-color: rgb(233, 233, 233);
     width: 100%;
     max-width: 100px;
     aspect-ratio: 1 / 1;
@@ -34,7 +34,6 @@ div.term {
 div.infoBox {
     grid-row: span 2;
     border: 1px black solid;
-    margin: 10px;
     text-align: center;
     padding: 5px;
 }
@@ -42,7 +41,6 @@ div.infoBox {
 div.coursesBox {
     grid-row-start: 2;
     border: 1px black dashed;
-    margin: 10px;
     padding: 5px;
 }
 
@@ -51,14 +49,18 @@ div.coursesBox {
     overflow: scroll;
 }
 
-div.course {
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
-    text-align: center;
-    background-color: white;
+form {
+    padding: 5px;
 }
 
-.courseTitle {
-    font-weight: bold;
+ul {
+    list-style: none;
+    padding: 5px;
+}
+
+li {
+    border-radius: 4px;
+    background-color: rgb(233, 233, 233);
+    padding: 2px;
+    margin-bottom: 2px;
 }
