@@ -1,12 +1,6 @@
-// let dropSlots = document.querySelectorAll(".slot");
-// let draggables = document.querySelectorAll("[draggable=true]");
-// let slots = document.getElementById("slotSection").querySelectorAll(".slot");
-
-// let draggingCourse = false;
-
-
-
 let termList = {};
+let courseListItems = [];
+let draggingCourse = false;
 
 function initPage() {
     let terms = document.querySelectorAll(".term");
@@ -14,32 +8,29 @@ function initPage() {
         let termName = term.id;
         termList[termName] = [];
         for(let i = 0; i < term.childElementCount; ++i) {
-            termList.[termName].push(term.children.item(i));
+            termList[termName].push(term.children.item(i));
+            // term.children.item(i).addEventListener("drop", drop);
+            // term.children.item(i).addEventListener("dragOver", dragOver);
+            // term.children.item(i).addEventListener("dragEnter", dragEnter);
+            // term.children.item(i).addEventListener("dragLeave", dragLeave);
         }
     });
-
-    // dropSlots.forEach(slot => {
-    //     slot.addEventListener("drop", drop);
-    //     slot.addEventListener("dragover", dragOver);
-    // });
-    // slots.forEach(slot => {
-    //     slot.addEventListener("dragenter", dragEnter);
-    //     slot.addEventListener("dragleave", dragLeave);
-    // });
-    // draggables.forEach(draggable => {
-    //     draggable.addEventListener("dragstart", dragStart);
-    // });
+    let courseLists = document.getElementsByTagName("li");
+    for(let i = 0; i < courseLists.length; ++i) {
+        courseListItems.push(courseLists.item(i));
+        courseLists.item(i).addEventListener("mousedown", dragStart);
+    }
 }
 
 initPage();
 
-
-// function dragStart(event) {
-//     if(event.currentTarget.classList.contains("course")) {
-//         event.dataTransfer.setData("courseID", event.currentTarget.id);
-//         draggingCourse = true;
-//     }
-// }
+function dragStart(event) {
+    
+    event.dataTransfer.setData("courseID", event.currentTarget.id);
+    draggingCourse = true;
+    // console.log("start dragging");
+    // console.log("\t", event.dataTransfer.getData("courseID"));
+}
 
 // function dragOver(event) {
 //     if(hasSpace(event.currentTarget) && draggingCourse) {
@@ -73,13 +64,3 @@ initPage();
 //     event.currentTarget.classList.remove("acceptDrop");
 // }
 
-// function hasSpace(slot) {
-//     return (slot.children.length < slot.dataset.limit || slot.dataset.limit == -1);
-// }
-
-// function updateInfoSection(slot) {
-//     let course = slot.firstElementChild;
-//     let infoSection = document.getElementById("infoSection");
-//     infoSection.firstElementChild.textContent = course.firstElementChild.textContent;
-//     infoSection.lastElementChild.textContent = course.lastElementChild.textContent;
-// }
