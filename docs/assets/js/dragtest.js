@@ -1,9 +1,16 @@
+const courseList = document.getElementById("courseList");
 const courseListItems = document.querySelectorAll(".courseListItem");
 let dragging = null;
 let slots = document.querySelectorAll(".slot");
+let test = document.getElementById("test");
 
 
 function initPage() {
+    let courseListItems = [];
+    for(let i = 0; i < courseList.children.length; ++i) {
+        courseList.children.item(i).
+        courseListItems.push({})
+    }
     courseListItems.forEach(item => {
         makeDraggable(item, true);
     });
@@ -15,6 +22,10 @@ function initPage() {
 function makeDraggable(element, source=false) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     let hoverSlot = null;
+    let homeSlot = null;
+    if(!source) {
+        homeSlot = element.parentNode;
+    }
     
     function mouseDown(event) {
         if(event.button !== 0) return;
@@ -30,12 +41,28 @@ function makeDraggable(element, source=false) {
             courseDescription();
         } else {
             dragging.classList.remove("dragging");
-            if(source) makeDraggable(dragging);
-            //TODO if not in slot and source, delete
-            //TODO if not in slot and not source, snap back to slot
-            //TODO if in slot and source, delete source
-            //TODO if close enough to slot, snap
+            dragging.style.top = dragging.offsetTop.toString() + "px";
+            dragging.style.left = dragging.offsetLeft.toString() + "px";
+            if(source) {
+                if(hoverSlot) {
+                    makeDraggable(dragging);
+                    hoverSlot.appendChild(dragging);
+                    courseList.removeChild(element);
+                } else {
+                    document.body.removeChild(dragging);
+                }
+            } else {
+                if(hoverSlot) {
+                    console.log("hover slot is: ", hoverSlot.id);
+                    console.log("home slot is: ", homeSlot.id);
+                }
+                if(hoverSlot && hoverSlot != homeSlot) {
+                    homeSlot.removeChild(dragging);
+                    hoverSlot.appendChild(dragging);
+                }
+            }
             dragging = null;
+            hoverSlot = null;
         }
         document.onmouseup = null;
         document.onmousemove = null;
@@ -97,7 +124,6 @@ function createCourse(event, element) {
     course.appendChild(courseTitle);
     course.appendChild(courseName);
     document.body.appendChild(course);
-    course.style.position = "absolute";
     course.style.top = (event.clientY - 0.25 * course.offsetHeight) + "px";
     course.style.left = (event.clientX - 0.5 * course.offsetWidth) + "px";
     return course;
